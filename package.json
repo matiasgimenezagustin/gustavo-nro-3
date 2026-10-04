@@ -1,0 +1,26 @@
+{
+  "name": "backend-servicios-reservas-api",
+  "version": "1.0.0",
+  "description": "API REST con Express y FileSystem para la gestión de servicios y reservas dentro del Sistema de Turnos y Reservas",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "filesystem",
+    "services",
+    "bookings",
+    "esm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

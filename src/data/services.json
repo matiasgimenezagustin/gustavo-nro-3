@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Corte de Cabello Clásico",
+    "description": "Corte personalizado con tijera y máquina, lavado y peinado",
+    "duration": 45,
+    "price": 8500,
+    "category": "Peluquería",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Arreglo y Perfilado de Barba",
+    "description": "Diseño de barba con toalla caliente y aceites esenciales",
+    "duration": 30,
+    "price": 5500,
+    "category": "Barbería",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Limpieza Facial Profunda",
+    "description": "Exfoliación, extracción de impurezas e hidratación con máscara",
+    "duration": 60,
+    "price": 14000,
+    "category": "Estética",
+    "available": true
+  }
+]
