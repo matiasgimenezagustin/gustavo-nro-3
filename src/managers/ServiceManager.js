@@ -122,7 +122,6 @@ export class ServiceManager {
     }
 
     const currentService = services[serviceIndex];
-    // No permitir modificar el id
     const { id: ignoredId, ...allowedUpdates } = updatedData;
 
     if (allowedUpdates.name !== undefined) {

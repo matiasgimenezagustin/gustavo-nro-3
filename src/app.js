@@ -7,11 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rutas principales
 app.use('/api/services', servicesRouter);
 app.use('/api/bookings', bookingsRouter);
 
-// Ruta de información / bienvenida
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'success',

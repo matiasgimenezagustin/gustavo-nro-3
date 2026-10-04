@@ -6,7 +6,6 @@ const router = Router();
 const bookingManager = new BookingManager();
 const serviceManager = new ServiceManager();
 
-// GET /api/bookings - Devuelve todas las reservas
 router.get('/', async (req, res) => {
   try {
     const bookings = await bookingManager.getBookings();
@@ -23,7 +22,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /api/bookings/:bid - Devuelve una reserva por id
 router.get('/:bid', async (req, res) => {
   try {
     const { bid } = req.params;
@@ -49,7 +47,6 @@ router.get('/:bid', async (req, res) => {
   }
 });
 
-// POST /api/bookings - Crea una reserva (puede iniciarse con services vacío)
 router.post('/', async (req, res) => {
   try {
     const newBooking = await bookingManager.createBooking(req.body);
@@ -67,12 +64,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-// POST /api/bookings/:bid/services/:sid - Agrega un servicio a una reserva existente validando que ambos existan
 router.post('/:bid/services/:sid', async (req, res) => {
   try {
     const { bid, sid } = req.params;
 
-    // 1. Validar que la reserva exista
     const booking = await bookingManager.getBookingById(bid);
     if (!booking) {
       return res.status(404).json({
@@ -81,7 +76,6 @@ router.post('/:bid/services/:sid', async (req, res) => {
       });
     }
 
-    // 2. Validar que el servicio exista
     const service = await serviceManager.getServiceById(sid);
     if (!service) {
       return res.status(404).json({
@@ -90,7 +84,6 @@ router.post('/:bid/services/:sid', async (req, res) => {
       });
     }
 
-    // 3. Agregar el servicio a la reserva (incrementa quantity si ya existe)
     const updatedBooking = await bookingManager.addServiceToBooking(bid, sid);
 
     return res.status(200).json({

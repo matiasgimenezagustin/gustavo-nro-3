@@ -4,7 +4,6 @@ import { ServiceManager } from '../managers/ServiceManager.js';
 const router = Router();
 const serviceManager = new ServiceManager();
 
-// GET /api/services - Devuelve todos los servicios (con soporte para filtros opcionales)
 router.get('/', async (req, res) => {
   try {
     const { category, available } = req.query;
@@ -39,7 +38,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /api/services/:sid - Devuelve un servicio por id
 router.get('/:sid', async (req, res) => {
   try {
     const { sid } = req.params;
@@ -65,7 +63,6 @@ router.get('/:sid', async (req, res) => {
   }
 });
 
-// POST /api/services - Crea un servicio (valida campos obligatorios; id generado automáticamente)
 router.post('/', async (req, res) => {
   try {
     const newService = await serviceManager.addService(req.body);
@@ -83,7 +80,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT /api/services/:sid - Actualiza un servicio (no permite modificar el id)
 router.put('/:sid', async (req, res) => {
   try {
     const { sid } = req.params;
@@ -109,7 +105,6 @@ router.put('/:sid', async (req, res) => {
   }
 });
 
-// DELETE /api/services/:sid - Elimina un servicio por id
 router.delete('/:sid', async (req, res) => {
   try {
     const { sid } = req.params;
